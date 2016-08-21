@@ -24,7 +24,7 @@ for(yr in 1999:2014){
   df <- rbind(df, new)
 }
 df.nototals <- filter(df, Municipality!="Totaler")
-write.table(df.nototals, file="school_fire_cases_1998_2014.tsv")
+write.table(df.nototals, file="school_fire_cases_1998_2014.csv",sep=",",row.names=FALSE)
 
 # (2) Prepare as a numerical matrix where each row is a municipality,
 # and each column is either the number of cases for a certain year, 
@@ -43,5 +43,5 @@ mx <- old[,2:ncol(old)]
 rownames(mx) <- old[,1]
 colnames(mx) <- cols[2:ncol(old)]
 mx <- mx[!rownames(mx)=="Totaler",]
-write.table(mx, "school_fire_cases_1998_2014_matrix.tsv", quote=FALSE, sep="\t")
+write.table(mx, "school_fire_cases_1998_2014_matrix.csv", quote=FALSE, sep=",")
 
